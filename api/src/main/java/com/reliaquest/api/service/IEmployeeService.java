@@ -1,30 +1,23 @@
 package com.reliaquest.api.service;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import com.reliaquest.api.request.EmployeeRequest;
+import com.reliaquest.api.response.EmployeeResponse;
 import java.util.List;
+import java.util.UUID;
 
-public interface IEmployeeService {
+public interface IEmployeeService<Employee, Input> {
 
+    List<EmployeeResponse> getAllEmployees();
 
-    List<Entity> getAllEmployees();
+    List<EmployeeResponse> getEmployeesByNameSearch(String searchString);
 
-
-    List<Entity> getEmployeesByNameSearch( String searchString);
-
-
-    Entity getEmployeeById( String id);
-
+    EmployeeResponse getEmployeeById(UUID id);
 
     Integer getHighestSalaryOfEmployees();
 
-
     List<String> getTopTenHighestEarningEmployeeNames();
 
+    EmployeeResponse createEmployee(EmployeeRequest employeeRequest);
 
-    Entity createEmployee( Input employeeInput);
-
-
-    String deleteEmployeeById( String id);
+    String deleteEmployee(String id);
 }

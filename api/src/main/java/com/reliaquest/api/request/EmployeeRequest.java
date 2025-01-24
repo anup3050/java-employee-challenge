@@ -1,10 +1,10 @@
-package com.reliaquest.server.model;
+package com.reliaquest.api.request;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
-public class CreateMockEmployeeInput {
+public class EmployeeRequest {
 
     @NotBlank
     private String name;
